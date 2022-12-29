@@ -1,9 +1,18 @@
 import React from 'react';
 import './App.css';
+import Home from './components/Home';
+import Navbar from './components/Navbar';
+import { Box } from '@mui/system';
+
 
 const App = () => {
   return (
-    <div className="App"></div>
+    <Box> new commit
+
+      <Home/>
+      <Navbar/>
+    </Box>
+  
   );
 }
 
