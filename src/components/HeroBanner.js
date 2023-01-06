@@ -1,6 +1,5 @@
-import { Box, Stack, Typography, Button} from '@mui/material'
-import { padding } from '@mui/system';
 import React from 'react'
+import { Box, Typography, Stack} from '@mui/material'
 import HeroBannerImage from '../assets/images/banner.png';
 
 const HeroBanner = () => {
@@ -9,29 +8,24 @@ const HeroBanner = () => {
         mt : { lg: '212px', xs: '70px'},
         ml : { sm: '50px'}
     }} position="relative" p="20px">
-        <Typography 
-            color="#FF2625"
-            fontWeight="600" fontSize="26px">
-           Fitnness Club 
+        <Typography color="#FF2625" fontWeight="600" fontSize="26px">
+            Fitnness Club 
         </Typography>
-        <Typography fontWeight={700}
-        sx ={{ fontSize : { lg: '44px', xs: '40px'
-        }}}
+        <Typography fontWeight={700} sx ={{ fontSize : { lg: '44px', xs: '40px'}}}
         mb="23px"
         mt="20px"
         >
             Sweat, Smile <br/> and Repeat
         </Typography>
-        <Typography fontSize="22px"
-        lineHeight="35px" mb={4} 
-            >
+        <Typography fontSize="22px" lineHeight="35px" mb={4} fontFamily="Alegreya">
             Check out the most effective exercises
         </Typography>
-        <Button variant="contained" color='error' href='#exercises' sx={{ background: '#ff2625', padding: '10px' }}>Explore Exercises</Button>
-        <img src={HeroBannerImage} alt="banner" className="hero-banner-img" />
-        <Typography 
-            fontWeight={600}
-            color="#ff2625"
+
+        <Stack>
+      <a href="#exercises" style={{ marginTop: '45px', textDecoration: 'none', width: '200px', textAlign: 'center', background: '#FF2625', padding: '14px', fontSize: '22px', textTransform: 'none', color: 'white', borderRadius: '4px' }}>Explore Exercises</a>
+    </Stack>
+
+        <Typography fontWeight={600} color="#ff2625"
             sx={{
                 opacity:0.1, // blury effect ke liye ex-> exercise
                 display:{lg: 'block', xs: 'none'}
@@ -40,8 +34,9 @@ const HeroBanner = () => {
             >
             Exercise
         </Typography>
+        <img src={HeroBannerImage} alt="hero-banner" className="hero-banner-img" />
     </Box>
   )
 }
 
-export default HeroBanner
+export default HeroBanner;
