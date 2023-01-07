@@ -7,6 +7,9 @@ import Exercises from '../components/Exercises'
 function Home() {
   const [bodyPart, setBodyPart] = useState('all');
   const [exercises, setExercises] = useState([]);
+
+console.log(bodyPart);
+
   return (
     <Box>
       <HeroBanner/>
@@ -16,9 +19,9 @@ function Home() {
         setBodyPart={setBodyPart}
       />
       <Exercises
+       exercises={exercises}
        setExercises={setExercises}
        bodyPart={bodyPart}
-       exercises={exercises}
       />
     </Box>
   );
