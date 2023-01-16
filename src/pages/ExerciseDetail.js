@@ -1,9 +1,9 @@
-import { Details } from '@mui/icons-material';
+
 import { Box } from '@mui/material'
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 
-import {exerciseOptions, fetch, fetchData, youtubeOptions} from '../utils/fetchData';
+import {exerciseOptions, fetchData, youtubeOptions} from '../utils/fetchData';
 import Detail from '../components/Detail';
 import ExerciseVideos from '../components/ExerciseVideos';
 import SimilareExercises from '../components/SimilareExercises';
@@ -14,6 +14,8 @@ const ExerciseDetail = () =>  {
 
 const [exerciseDetail, setExerciseDetail] = useState({});
 const [exerciseVideos, setExerciseVideos] = useState([]);
+const [targetMuscleExercises, setTargetMuscleExercises] = useState([]);
+const [equipmentExercises, setEquipmentExercises] = useState([]);
 const { id } = useParams();
 
 
@@ -25,8 +27,13 @@ useEffect(() => {
     const exerciseDetailData = await fetchData(`${exerciseDbUrl}/exercises/exercise/${id}`, exerciseOptions);
     setExerciseDetail(exerciseDetailData);
 
-    const exerciseVideoData = await fetchData(`${youtubeSearchUrl}/search?q=${exerciseDetailData.name}`, youtubeOptions);
-    setExerciseVideos(exerciseVideoData);
+    const exerciseVideoData = await fetchData(`${youtubeSearchUrl}/search?query=${exerciseDetailData.name}`, youtubeOptions);
+    setExerciseVideos(exerciseVideoData.contents);
+
+    const targetMuscleExercisesData = await fetchData(`${exerciseDbUrl}/exercises/target/${exerciseDetailData.target}`, exerciseOptions);
+    setTargetMuscleExercises(targetMuscleExercisesData);
+    const equipmentExercisesData = await fetchData(`${exerciseDbUrl}/exercises/equipment/${exerciseDetailData.equipment}`, exerciseOptions);
+    setEquipmentExercises(equipmentExercisesData);
   }
   fetchExercisesData();
 
@@ -38,7 +45,9 @@ useEffect(() => {
     <Box>
       <Detail exerciseDetail={exerciseDetail}/>
       <ExerciseVideos exerciseVideos={exerciseVideos} name={exerciseDetail.name}/>
-      <SimilareExercises/>
+      <SimilareExercises targetMuscleExercises={targetMuscleExercises}
+      equipmentExercises={equipmentExercises}
+      />
     </Box>
   )
 }

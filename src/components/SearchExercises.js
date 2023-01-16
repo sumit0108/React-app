@@ -84,8 +84,8 @@ const handleSearch = async () => {
       </Box>
       <Box sx={{postion: 'relative', width: '1000px'}}>
           <HorizontalScrollbar data={bodyParts}
-          bodyPart={bodyPart} setBodyPart={setBodyPart} bodyParts
-          />
+          bodyPart={bodyPart} setBodyPart={setBodyPart} 
+          isBodyParts/>
       </Box>
 
     </Stack>

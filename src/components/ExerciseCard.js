@@ -14,7 +14,7 @@ const ExerciseCard = ({exercise}) => {
                 {exercise.bodyPart}
             </Button>
             <Button sx={{ml: '21px', color: '#fff', background: '#fcc757', fontSize: '14px', borderRadius: '20px', textTransform: 'capitalize'}}>
-                {exercise.targetMuscle}
+                {exercise.target}
             </Button>
         </Stack>
         <Typography ml="21px" color="#000" fontSize="22px" mt="22px" pb="10px" textTransform="capitalize" fontWeight="bold">

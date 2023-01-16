@@ -34,7 +34,7 @@ useEffect(() => {
   }
 
   fetchExercisesData();
-}, [bodyPart]);
+},[bodyPart]);
 
 
   return (
